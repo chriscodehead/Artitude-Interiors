@@ -3,18 +3,19 @@
           <div id="sidebar"  class="nav-collapse " style="background-color:#00CC00;">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">         
-                  <li class="<?php echo $actova1;?>">
+                  <!-- <li class="<?php echo $actova1;?>">
                       <a class="" href="../host-admin/">
                           <i class="icon_house_alt"></i>
                           <span style="color:#FFF;">Dashboard</span>
                       </a>
-                  </li>
+                  </li> -->
                 <!-- <li class="sub-menu <?php print $actova2;?>">
                       <a href="wallet" class="">
                           <i class="fa fa-bank"></i>
                           <span style="color:#FFF;">Transactions</span>
                       </a>
                 </li> -->
+                
 
                  <!-- <li class="<?php print @$actova4;?>">
                       <a class="" href="pay-bitcoin">
@@ -34,6 +35,12 @@
                           <span style="color:#FFF; font-size:15px;">Settings</span>
                       </a>
                   </li>
+                  <li class="sub-menu <?php print @$actova91ee;?>">
+                      <a href="create-category" class="">
+                          <i class="fa fa-bank"></i>
+                          <span style="color:#FFF;">Create Category</span>
+                      </a>
+                </li> 
                   <li class="<?php print @$actova44ww;?>">
                       <a class="" href="services">
                           <i class="fa fa-bitcoin"></i>
@@ -46,12 +53,12 @@
                           <span style="color:#FFF; font-size:15px;">PayOut Manipulate</span>
                       </a>
                   </li>-->
-                  <li class="<?php print @$actova6w;?>">
+                  <!-- <li class="<?php print @$actova6w;?>">
                       <a class="" href="addproduct">
                           <i class="fa  fa-money"></i>
                           <span style="color:#FFF; font-size:15px;">Add Product</span>
                       </a>
-                  </li>
+                  </li> -->
                    
                   <!--<li class="<?php print @$actova7;?>">
                       <a class="" href="cashout-history">

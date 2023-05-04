@@ -24,21 +24,21 @@
             <h4>Useful Links</h4>
             <ul>
               <li> <a href="./">Home</a></li>
-              <li> <a href="#about">About us</a></li>
-              <li><a href="#portfolio">portfolio</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="gallery">Gallery</a></li>
+              <li> <a href="./#about">About us</a></li>
+              <li><a href="./#portfolio">portfolio</a></li>
+              <li><a href="./#services">Services</a></li>
+              <!-- <li><a href="gallery">Gallery</a></li> -->
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li> <a href="./services">Wroughtiron Railings</a></li>
-              <li> <a href="./services">Wroughtiron Gates</a></li>
-              <li> <a href="./services">Wroughtiron Fencing</a></li>
-              <li> <a href="./services">Wroughtiron Stairs</a></li>
-              <li> <a href="./services">Wroughtiron Dalconies</a></li>
+              <li> <a href="./#services">Wroughtiron Railings</a></li>
+              <li> <a href="./#services">Wroughtiron Gates</a></li>
+              <li> <a href="./#services">Wroughtiron Fencing</a></li>
+              <li> <a href="./#services">Wroughtiron Stairs</a></li>
+              <li> <a href="./#services">Wroughtiron Dalconies</a></li>
             </ul>
           </div>
 

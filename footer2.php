@@ -2,7 +2,7 @@
 <div class="col-md-12 text-center py-5">
 <p>
 
-Copyright &copy; <?php print $siteName;?> <script>document.write(new Date().getFullYear());</script> All rights reserved |  <br><i class="icon-heart" aria-hidden="true"></i> by <a href="https://centadesk.com/" target="_blank">Centadesk</a>
+Copyright &copy; <?php print $siteName;?> <script>document.write(new Date().getFullYear());</script> All rights reserved |  <i class="icon-heart" aria-hidden="true"></i> by <a href="https://centadesk.com/" target="_blank">Centadesk</a>
 
 </p>
 </div>

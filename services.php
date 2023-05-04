@@ -21,7 +21,7 @@ a {
       <h1>Check. Our. Services.</h1>
       <h2><div class="col-lg-12 p-1">An art & interiors design company made up of talented artists, design gurus & artisans.</div></h2>
       <div class="d-flex">
-        <a href="<?php print $siteWhatsAppLink.'Hi Artitude art & interiors, i want to make enquiries about your services. My name is ....';?>" class="btn-get-started scrollto">Get Intouch</a>
+        <a href="<?php print $siteWhatsAppLink.'Hi Artitude art and interiors, i want to make enquiries about your services. My name is ....';?>" class="btn-get-started scrollto">Get Intouch</a>
         <a href="<?php print $sqli->getSettings('site_youtube');?>" class="glightbox btn-watch-video"><i class="fa fa-play-circle"></i><span>Watch Video</span></a>
       </div>
     </div>

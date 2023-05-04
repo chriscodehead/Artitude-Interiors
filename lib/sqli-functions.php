@@ -32,7 +32,7 @@ public function countCourse($cat){
 }
 
 public function countCate($cat_id){
-	$sql = "SELECT * FROM $this->news WHERE `p_id`='".$cat_id."' ";
+	$sql = "SELECT * FROM $this->news WHERE `category`='".$cat_id."' ";
 	$stmt = query_sql($sql);
 	 $cont = 0;
 		while($row = mysqli_fetch_assoc($stmt)){
@@ -70,6 +70,20 @@ public function countReviews($email){
 		  }
 		  return $cont;
 	}
+
+public function getSingleSettings($item, $id){
+    $sql = "SELECT * FROM $this->news WHERE `id`='".$id."' ";
+    $stmt = query_sql($sql);
+    $row = mysqli_fetch_assoc($stmt);
+    return $row[$item];
+}	
+
+public function getPortfolio($item,$cat){
+    $sql = "SELECT * FROM $this->news WHERE `category`='".$cat."' ";
+    $stmt = query_sql($sql);
+    $row = mysqli_fetch_assoc($stmt);
+    return $row[$item];
+}	
 
 public function getSettings($item){
     $sql = "SELECT * FROM $this->settings WHERE `id`=1";

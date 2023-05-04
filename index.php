@@ -21,7 +21,7 @@ a {
       <h1>Artitude. Interiors. Cretivity.</h1>
       <h2><div class="col-lg-12 p-1">An art & interiors design company made up of talented artists, design gurus & artisans.</div></h2>
       <div class="d-flex">
-        <a href="<?php print $siteWhatsAppLink.'Hi Artitude art & interiors, i want to make enquiries about your services. My name is ....';?>" class="btn-get-started scrollto">Get Intouch</a>
+        <a href="<?php print $siteWhatsAppLink.'Hi Artitude art and interiors, i want to make enquiries about your services. My name is ....';?>" class="btn-get-started scrollto">Get Intouch</a>
         <a href="<?php print $sqli->getSettings('site_youtube');?>" class="glightbox btn-watch-video"><i class="fa fa-play-circle"></i><span>Watch Video</span></a>
       </div>
     </div>
@@ -250,7 +250,7 @@ a {
               </div>
 
           <?php $i++; }}else{?>
-            <h3 class="text-white">No data found!</h3>
+            <h3 class="text-dark">No data found!</h3>
               <?php }?>
 
 
@@ -259,7 +259,8 @@ a {
       </div>
       <div class="row" style="margin-top: 50px;">
           <center><div class="col-lg-12">
-                  <a href="portfolio"><button style="background-color: #d7cb32; paddding:10px;" class="btn btn-block">See All</button></a>
+                  <a href="portfolio"><button style="background-color: #d7cb32; paddding:10px;" class="btn btn-block">See Category</button></a>
+                  <a href="portfolio-all"><button style="background-color: #d7cb32; paddding:10px;" class="btn btn-block">See All</button></a>
               </div>
           </center>
         </div>

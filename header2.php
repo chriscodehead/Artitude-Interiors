@@ -9,7 +9,7 @@
 </div>
 <header class="header-bar d-flex d-lg-block align-items-center" data-aos="fade-left">
 <div class="site-logo">
-<a href="./"><?php print $siteName;?></a>
+<a href="./"><img width="50" class="black-logo" src="img/logo.png" alt="Artitude Interiors"><!-- <?php print $siteName;?> --></a>
 </div>
 <div class="d-inline-block d-xl-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
 <div class="main-menu">
@@ -17,7 +17,7 @@
 <li class="active"><a href="./">Home</a></li>
 <li><a href="./#about">About</a></li>
 <li><a href="services">Services</a></li>
-<li><a href="<?php print $siteWhatsAppLink.'Hi Artitude art & interiors, i want to make enquiries about your services. My name is ....';?>">Contact</a></li>
+<li><a href="<?php print $siteWhatsAppLink.'Hi Artitude art and interiors, i want to make enquiries about your services. My name is ....';?>">Contact</a></li>
 </ul>
 <ul class="social js-clone-nav">
 <li><a href="<?php print $siteFacebook;?>"><span class="icon-facebook"></span></a></li>
