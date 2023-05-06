@@ -18,20 +18,63 @@ if(isset($_POST['post'])){
       $passportIn = $cal->selectFrmDB($news,'post_image','id',$_GET['id']);
 			if(!empty($msg )&&!empty($name)&&!empty($title)){
 
+              $file = $_FILES['file'];
               $pic_name  = $_FILES['file']['name'];
               $pic_tmp = $_FILES['file']['tmp_name'];
               $pic_size = $_FILES['file']['size'];
+              $fileType = $file['type'];
+
               if(!empty($pic_name)){
                 $gen_Num = $bassic->randGenerator();
                 $extension_Name = $bassic->extentionName($pic_name);
-                $new_name = $gen_Num.uniqid().$extension_Name;
+                $new_name = $blog_id.$gen_Num.uniqid().$extension_Name;
                 $path = '../../photo/'.$new_name;
+
                 if($passportIn=='avatar.png'){}else{
                   $bassic->unlinkFile($passportIn,'../../photo/');
                 }
-                  $upl = $bassic->uploadImage($pic_tmp,$path);
+                
+                $upl = $bassic->uploadImage($pic_tmp,$path);
+
+                $watermark = '../../watermark.png';
+                $imageSize = getimagesize($path);
+                $width = $imageSize[0];
+                $height = $imageSize[1];
+
+                // Create a new image from the uploaded file
+                if($fileType == 'image/jpeg'){
+                    $image = imagecreatefromjpeg($path);
+                } elseif($fileType == 'image/png'){
+                    $image = imagecreatefrompng($path);
+                }else{
+                    $image = imagecreatefromjpeg($path);
+                }
+
+                // Create a new image from the watermark file
+                $watermarkImg = imagecreatefrompng($watermark);
+
+                // Set the position of the watermark image
+                $watermarkImgX = ($width / 2) - (imagesx($watermarkImg) / 2);
+                $watermarkImgY = ($height / 2) - (imagesy($watermarkImg) / 2);
+
+                // Apply the watermark to the uploaded image
+                imagecopy($image, $watermarkImg, $watermarkImgX, $watermarkImgY, 0, 0, imagesx($watermarkImg), imagesy($watermarkImg));
+
+                // Save the modified image to a file
+                if($fileType == 'image/jpeg'){
+                    imagejpeg($image, $path);
+                } elseif($fileType == 'image/png'){
+                    imagepng($image, $path);
+                }else{
+                  imagejpeg($image, $path);
+                }
+
+                // Free up memory
+                imagedestroy($image);
+                imagedestroy($watermarkImg);
+
                   
-                  $fieldup = array("blog_id","title","news","admin_name","date_post","post_image","category");
+                $fieldup = array("blog_id","title","news","admin_name","date_post","post_image","category");
                 $valueup = array($blog_id,$title,$msg,$name,$postdate,$new_name,$category);
                 $update = $cal->update($news,$fieldup,$valueup,'id',$_GET['id']);
                 if(!empty($update)){
@@ -136,7 +179,8 @@ $title = 'Portfolio View |';
                                         <td> <input  name="datepost" value="<?php echo @$cal->selectFrmDB($news,'date_post','id',$_GET['id'])?>" type="text" class="form-control" id="" /></td>
                                         </tr>
                                         <tr>
-                                        <td> Attach File <img src="../../photo/<?php echo @$cal->selectFrmDB($news,'post_image','id',$_GET['id']);?>" width="40px"></td>
+                                        <td> Attach File <a target="_blank" href="../../photo/<?php echo @$cal->selectFrmDB($news,'post_image','id',$_GET['id']);?>"><img src="../../photo/<?php echo @$cal->selectFrmDB($news,'post_image','id',$_GET['id']);?>" width="40px"></a>
+                                        </td>
                                         <td> <input  name="file" type="file" class="form-control" id="" /></td>
                                         </tr>
                                         <tr>

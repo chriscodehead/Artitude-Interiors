@@ -1,6 +1,6 @@
 <?php 
 require_once('include.php');
-$title = 'Artitude art & interiors | An art & interiors design company made up of talented artists,design gurus & artisans';
+$title = 'Portfolio | An art & interiors design company made up of talented artists,design gurus & artisans';
 require_once('head2.php');
 if(isset($_GET['id'])&&!empty($_GET['id'])){}else{header("Location:portfolio");}
 ?>

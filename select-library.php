@@ -2405,7 +2405,7 @@ you already made payment. Have any problem? Contact us @ support@signalearners.c
 									<tr class="odd gradeX">
 											<th>'.$i.'</th>
 											<th>'.self::reduceTextLength($row['title'],40).'</th>
-											<th><img src="../../photo/'.$row['post_image'].'" width="50"/></th>
+											<th><a target="_blank" href="../../photo/'.$row['post_image'].'"><img src="../../photo/'.$row['post_image'].'" width="50"/></a></th>
 											<th>'.self::reduceTextLength($row['news'],40).'</th>
 											<th>'.$row['admin_name'].'</th>
                                             <th>'.$row['date_post'].'</th>

@@ -16,6 +16,8 @@ if(isset($_POST['post'])){
     $url_info = str_replace(' ', '-', $title);
     $theurl = preg_replace('/[^A-Za-z0-9\-]/', '', $url_info);
 
+    $file = $_FILES['file'];
+    $fileType = $file['type'];
     $pic_name  = $_FILES['file']['name'];
     $pic_tmp = $_FILES['file']['tmp_name'];
     $pic_size = $_FILES['file']['size'];
@@ -24,11 +26,49 @@ if(isset($_POST['post'])){
 
     $gen_Num = $bassic->randGenerator();
     $extension_Name = $bassic->extentionName($pic_name);
-    $new_name = $gen_Num.uniqid().$extension_Name;
+    $new_name = $theurl.$gen_Num.uniqid().$extension_Name;
     $path = '../../productimage/'.$new_name;
     $picvalidation = $bassic->picVlidator($pic_name,$pic_size);
     if(empty($picvalidation)) {
         $upl = $bassic->uploadImage($pic_tmp,$path);
+
+        $watermark = '../../watermark.png';
+        $imageSize = getimagesize($path);
+        $width = $imageSize[0];
+        $height = $imageSize[1];
+
+        // Create a new image from the uploaded file
+        if($fileType == 'image/jpeg'){
+            $image = imagecreatefromjpeg($path);
+        } elseif($fileType == 'image/png'){
+            $image = imagecreatefrompng($path);
+        }else{
+            $image = imagecreatefromjpeg($path);
+        }
+
+        // Create a new image from the watermark file
+        $watermarkImg = imagecreatefrompng($watermark);
+
+        // Set the position of the watermark image
+        $watermarkImgX = ($width / 2) - (imagesx($watermarkImg) / 2);
+        $watermarkImgY = ($height / 2) - (imagesy($watermarkImg) / 2);
+
+        // Apply the watermark to the uploaded image
+        imagecopy($image, $watermarkImg, $watermarkImgX, $watermarkImgY, 0, 0, imagesx($watermarkImg), imagesy($watermarkImg));
+
+        // Save the modified image to a file
+        if($fileType == 'image/jpeg'){
+            imagejpeg($image, $path);
+        } elseif($fileType == 'image/png'){
+            imagepng($image, $path);
+        }else{
+            imagejpeg($image, $path);
+        }
+
+        // Free up memory
+        imagedestroy($image);
+        imagedestroy($watermarkImg);
+
         if(empty($upl)) {
 
                 if(query_sql("INSERT INTO $cat_tb VALUES(null ,'".$theurl."' ,'".$title."', '".$new_name."')")){

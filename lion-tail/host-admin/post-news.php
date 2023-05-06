@@ -18,21 +18,61 @@ if(isset($_POST['post'])){
       
 
 			if(!empty($msg )&&!empty($name)&&!empty($title)){
-
+                      $file = $_FILES['file'];
+                      $fileType = $file['type'];
                       $pic_name  = $_FILES['file']['name'];
                       $pic_tmp = $_FILES['file']['tmp_name'];
                       $pic_size = $_FILES['file']['size'];
+                     
                       
                       if(!empty($pic_name)){
                         $gen_Num = $bassic->randGenerator();
                         $extension_Name = $bassic->extentionName($pic_name);
-                        $new_name = $gen_Num.uniqid().$extension_Name;
+                        $new_name = $blog_id.$gen_Num.uniqid().$extension_Name;
                         $path = '../../photo/'.$new_name;
                         $file = $site.'/photo/'.$new_name;
                         //$picvalidation = $bassic->picVlidator($pic_name,$pic_size);
                         //if(empty($picvalidation)){
-                          $upl = $bassic->uploadImage($pic_tmp,$path);
+                        $upl = $bassic->uploadImage($pic_tmp,$path);
                           //}else{$img_error = $picvalidation;}
+                          // Set the path and name of the watermark image
+                        $watermark = '../../watermark.png';
+                        $imageSize = getimagesize($path);
+                        $width = $imageSize[0];
+                        $height = $imageSize[1];
+
+                        // Create a new image from the uploaded file
+                        if($fileType == 'image/jpeg'){
+                            $image = imagecreatefromjpeg($path);
+                        } elseif($fileType == 'image/png'){
+                            $image = imagecreatefrompng($path);
+                        }else{
+                            $image = imagecreatefromjpeg($path);
+                        }
+
+                        // Create a new image from the watermark file
+                        $watermarkImg = imagecreatefrompng($watermark);
+
+                        // Set the position of the watermark image
+                        $watermarkImgX = ($width / 2) - (imagesx($watermarkImg) / 2);
+                        $watermarkImgY = ($height / 2) - (imagesy($watermarkImg) / 2);
+
+                        // Apply the watermark to the uploaded image
+                        imagecopy($image, $watermarkImg, $watermarkImgX, $watermarkImgY, 0, 0, imagesx($watermarkImg), imagesy($watermarkImg));
+
+                        // Save the modified image to a file
+                        if($fileType == 'image/jpeg'){
+                            imagejpeg($image, $path);
+                        } elseif($fileType == 'image/png'){
+                            imagepng($image, $path);
+                        }else{
+                          imagejpeg($image, $path);
+                        }
+
+                        // Free up memory
+                        imagedestroy($image);
+                        imagedestroy($watermarkImg);
+
                         }else{$img_error2 =  'Please browse a file!';}
 
 										  $fieldup = array("id","blog_id","title","news","admin_name","date_post","top_massage","post_image","category");
