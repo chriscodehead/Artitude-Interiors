@@ -259,7 +259,7 @@ a {
       </div>
       <div class="row" style="margin-top: 50px;">
           <center><div class="col-lg-12">
-                  <a href="portfolio"><button style="background-color: #d7cb32; paddding:10px;" class="btn btn-block">See Category</button></a>
+                  <!-- <a href="portfolio"><button style="background-color: #d7cb32; paddding:10px;" class="btn btn-block">See Category</button></a> -->
                   <a href="portfolio-all"><button style="background-color: #d7cb32; paddding:10px;" class="btn btn-block">See All</button></a>
               </div>
           </center>

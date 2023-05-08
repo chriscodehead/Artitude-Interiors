@@ -27,7 +27,7 @@
               <li> <a href="./#about">About us</a></li>
               <li><a href="./#portfolio">portfolio</a></li>
               <li><a href="./#services">Services</a></li>
-              <!-- <li><a href="gallery">Gallery</a></li> -->
+              <li><a href="portfolio">Gallery</a></li>
             </ul>
           </div>
 

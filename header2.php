@@ -17,6 +17,7 @@
 <li class="active"><a href="./">Home</a></li>
 <li><a href="./#about">About</a></li>
 <li><a href="services">Services</a></li>
+<li><a href="portfolio">Gallery</a></li>
 <li><a href="<?php print $siteWhatsAppLink.'Hi Artitude art and interiors, i want to make enquiries about your services. My name is ....';?>">Contact</a></li>
 </ul>
 <ul class="social js-clone-nav">

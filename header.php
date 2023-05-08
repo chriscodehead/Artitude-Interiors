@@ -7,7 +7,7 @@
           <li><a class="nav-link scrollto active" href="./">Home</a></li>
           <li><a class="nav-link scrollto" href="./#about">About</a></li>
           <li><a class="nav-link scrollto " href="./#portfolio">Portfolio</a></li>
-          <!-- <li><a class="nav-link scrollto " href="gallery">Gallery</a></li> -->
+          <li><a class="nav-link scrollto " href="portfolio">Gallery</a></li>
           <li><a class="nav-link scrollto " href="./#services">Services</a></li>
           <li><a class="getstarted scrollto" href="<?php print $siteWhatsAppLink.'Hi Artitude art and interiors, i want to make enquiries about your services. My name is ....';?>">Get Started</a></li>
         </ul>
